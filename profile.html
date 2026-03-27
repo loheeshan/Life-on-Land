@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="icon" href="images/logo.png">
+	<title>User Profile - Life on Land</title>
+
+	<style>
+		.profile-container {
+			max-width: 1200px;
+			margin: 30px auto;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 25px;
+			justify-content: center;
+			padding: 0 15px;
+			align-items: flex-start;
+		}
+
+		.column {
+			flex: 1;
+			min-width: 300px;
+			position: -webkit-sticky;
+			position: sticky;
+			top: 20px;
+			z-index: 10;
+		}
+
+		.wide-column {
+			flex: 2;
+			min-width: 300px;
+		}
+
+
+		.profile-section {
+			background: linear-gradient(135deg, #dfeeea, #f5f5f5);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid rgba(150, 170, 155, 0.4);
+			border-radius: 20px;
+			box-shadow: 0 8px 32px rgba(50, 55, 50, 0.15);
+
+			padding: 30px 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			color: #333;
+			position: relative;
+
+			transition: all 0.3s ease;
+		}
+
+		.profile-section:hover {
+			transform: scale(1.02);
+			background: rgba(100, 115, 105, 0.25);
+			box-shadow: 0 12px 40px rgba(50, 55, 50, 0.25);
+		}
+
+
+		.avatar {
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			object-fit: cover;
+			display: block;
+			line-height: 180px;
+			text-align: center;
+		}
+
+
+		.profile-picture-container {
+			position: relative;
+			display: inline-block;
+			width: 180px;
+			height: 180px;
+			margin-bottom: 15px;
+		}
+
+		.change-profile-button {
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			background: #2e7d32;
+			color: white;
+			padding: 5px 8px;
+			border-radius: 6px;
+			cursor: pointer;
+			font-size: 12px;
+			z-index: 2;
+		}
+
+		#profile-picture-input {
+			display: none;
+		}
+
+
+		.bar {
+			background: #ddd;
+			height: 12px;
+			border-radius: 6px;
+			margin-bottom: 10px;
+			overflow: hidden;
+		}
+
+		.progress {
+			height: 100%;
+			width: 0;
+			background: linear-gradient(to right, #43a047, #1b5e20);
+			border-radius: 6px;
+			transition: width 0.8s ease;
+		}
+
+
+		.profile-list ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.profile-list ul li {
+			background: #77d4a0;
+			padding: 10px;
+			margin: 6px 0;
+			border-radius: 10px;
+		}
+
+
+		.btn {
+			padding: 10px 15px;
+			border: none;
+			background: linear-gradient(135deg, #43a047, #2e7d32);
+			color: white;
+			border-radius: 8px;
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		.btn:hover {
+			opacity: 0.9;
+		}
+
+
+		@media (max-width: 768px) {
+			.profile-container {
+				flex-direction: column;
+			}
+
+			.column {
+				position: static;
+			}
+		}
+
+		.scroll-to-top {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			background: #388e3c;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			width: 44px;
+			height: 44px;
+			font-size: 1.1rem;
+			cursor: pointer;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			transition: background 0.3s ease;
+			z-index: 999;
+			padding: 0;
+		}
+
+		.scroll-to-top:hover {
+			background: #2e7d32;
+		}
+	</style>
+</head>
+
+<body>
+
+	<a class="back-to-top" href="#top" aria-label="Go to top">↑</a>
+
+	<header class="site-header">
+		<div class="container header-wrap">
+
+			<a class="brand" href="home.html">
+				<img src="images/logo.png" alt="Green Roots logo">
+				<div class="brand-text">
+					<h1>Green Roots</h1>
+					<p>Student action for SDG 15: Life on Land</p>
+				</div>
+			</a>
+
+			<nav class="main-nav" aria-label="Primary navigation">
+				<ul>
+					<li><a href="home.html" class="active">Home</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="ais.html">Action Impact</a></li>
+					<li><a href="feedback.html">Feedback</a></li>
+					<li><a href="team.html">Team</a></li>
+					<li><a href="profile.html">Profile</a></li>
+					<li><a href="sitemap.html">Sitemap</a></li>
+					<li><a href="quiz.html">Quiz</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</header>
+
+	<main>
+		<h1>User Profile</h1>
+
+		<div class="profile-container">
+			<div class="column">
+				<div class="profile-section">
+					<div class="profile-picture-container">
+						<img id="avatar-image"
+							src="https://ui-avatars.com/api/?name=Guest+Explorer&background=77d4a0&color=fff&size=200"
+							class="avatar" alt="User Profile Image">
+						<label for="profile-picture-input" class="change-profile-button">Change</label>
+						<input type="file" id="profile-picture-input" accept="image/*">
+					</div>
+
+					<h2 id="display-name">Guest Explorer</h2>
+					<p id="display-age">Age: --</p>
+					<p id="display-role">Role: --</p>
+					<p id="display-location">Location: --</p>
+				</div>
+			</div>
+
+			<div class="wide-column">
+
+				<div class="profile-section">
+					<h3>Build Your SDG Profile</h3>
+					<p>Complete the steps to progressively build your Life on Land profile.</p>
+
+					<div style="text-align: left; margin-bottom: 5px; font-weight: bold;">
+						Profile Completion: <span id="progress-text">0%</span>
+					</div>
+					<div class="bar">
+						<div id="profile-progress" class="progress"></div>
+					</div>
+
+					<div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+						<button class="btn" id="main-action-btn" onclick="startProfile()">Start / Continue
+							Profile</button>
+						<button class="btn" id="btn-step1" style="display:none;" onclick="runStep(1)">Revisit Personal
+							Details</button>
+						<button class="btn" id="btn-step2" style="display:none;" onclick="runStep(2)">Revisit
+							Interests</button>
+						<button class="btn" id="btn-step3" style="display:none;" onclick="runStep(3)">Revisit
+							Commitments</button>
+					</div>
+				</div>
+
+				<div style="display: flex; flex-wrap: wrap; gap: 15px;">
+
+					<div id="output-step1" class="profile-section" style="display:none; flex: 1; min-width: 250px;">
+						<h3>Personal Details</h3>
+						<ul class="profile-list" style="text-align: left;">
+							<li><strong>Name:</strong> <span id="out-name">Skipped</span></li>
+							<li><strong>Age:</strong> <span id="out-age">Skipped</span></li>
+							<li><strong>Role:</strong> <span id="out-role">Skipped</span></li>
+							<li><strong>Country:</strong> <span id="out-country">Skipped</span></li>
+						</ul>
+					</div>
+
+					<div id="output-step2" class="profile-section" style="display:none; flex: 1; min-width: 250px;">
+						<h3>Interests</h3>
+						<ul class="profile-list" style="text-align: left;">
+							<li><strong>Primary Focus:</strong> <span id="out-sdg">Skipped</span></li>
+							<li><strong>Favorite Species:</strong> <span id="out-why">Skipped</span></li>
+							<li><strong>Engagement:</strong> <span id="out-issue">Skipped</span></li>
+						</ul>
+					</div>
+
+					<div id="output-step3" class="profile-section" style="display:none; flex: 1; min-width: 250px;">
+						<h3>Commitments</h3>
+						<ul class="profile-list" style="text-align: left;">
+							<li><strong>Past Action:</strong> <span id="out-action1">Skipped</span></li>
+							<li><strong>Future Goal:</strong> <span id="out-action2">Skipped</span></li>
+							<li><strong>Hours/Month:</strong> <span id="out-hours">Skipped</span></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+	<footer class="site-footer">
+
+		<div class="container footer-grid">
+
+			<div class="footer-col">
+				<h3>Green Roots</h3>
+				<p>
+					A student project based on SDG 15: Life on Land, designed to promote awareness, action, and
+					sustainable thinking.
+				</p>
+
+				<div class="footer-links">
+					<a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+					<a href="validation_ST1.html">Validation</a>
+					<a href="https://www.w3.org/WAI/" target="_blank">Accessibility</a>
+				</div>
+			</div>
+
+			<div class="footer-col">
+				<h3>Student 1</h3>
+				<ul>
+					<li><a href="home.html">Home Page</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="content_ST1.html">Content Page</a></li>
+					<li><a href="pageEditor_ST1.html">Page Editor</a></li>
+					<li><a href="validation_ST1.html">Validation</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h3>Student 2</h3>
+				<ul>
+					<li><a href="index.html">Splash Page</a></li>
+					<li><a href="quiz.html">Quiz Page</a></li>
+					<li><a href="content_ST2.html">Content Page</a></li>
+					<li><a href="pageEditor_ST2.html">Page Editor</a></li>
+					<li><a href="validation_ST2.html">Validation</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h3>Student 3</h3>
+				<ul>
+					<li><a href="feedback.html">Feedback Page</a></li>
+					<li><a href="team.html">Team Page</a></li>
+					<li><a href="content_ST3.html">Content Page</a></li>
+					<li><a href="pageEditor_ST3.html">Page Editor</a></li>
+					<li><a href="validation_ST3.html">Validation</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h3>Student 4</h3>
+				<ul>
+					<li><a href="profile.html">User Profile Page</a></li>
+					<li><a href="sitemap.html">Sitemap Page</a></li>
+					<li><a href="content_ST4.html">Content Page</a></li>
+					<li><a href="pageEditor_ST4.html">Page Editor</a></li>
+					<li><a href="validation_ST4.html">Validation</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="footer-bottom">
+			<p><strong>&copy; 2026 Life on Land Team |</strong> All rights reserved.</p>
+		</div>
+
+	</footer>
+
+	<script>
+
+		const scrollToTopBtn = document.querySelector(".scroll-to-top");
+
+		document.addEventListener('DOMContentLoaded', function () {
+			document.getElementById('profile-picture-input').addEventListener('change', function (e) {
+				const file = e.target.files[0];
+				if (file && file.type.startsWith('image/')) {
+					const reader = new FileReader();
+					reader.onload = e => document.getElementById('avatar-image').src = e.target.result;
+					reader.readAsDataURL(file);
+				}
+			});
+		});
+
+		window.onscroll = function () {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				if (scrollToTopBtn) scrollToTopBtn.style.display = "flex";
+			} else {
+				if (scrollToTopBtn) scrollToTopBtn.style.display = "none";
+			}
+		};
+
+		function scrollToTop() {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+
+
+		const profileData = {
+			step1: { name: '', age: '', role: '', country: '', completed: false },
+			step2: { sdg: '', why: '', issue: '', completed: false },
+			step3: { action1: '', action2: '', hours: '', completed: false }
+		};
+
+		let currentStep = 1;
+
+		function startProfile() {
+			if (currentStep === 1) runStep(1);
+			else if (currentStep === 2) runStep(2);
+			else if (currentStep === 3) runStep(3);
+			else alert("You have visited all steps! Click the 'Revisit' buttons to update any missing information.");
+		}
+
+		function runStep(stepNumber) {
+			if (stepNumber === 1) {
+				profileData.step1.name = prompt("Personal Details (1/4): What is your name?") || "";
+				profileData.step1.age = prompt("Personal Details (2/4): How old are you?") || "";
+				profileData.step1.role = prompt("Personal Details (3/4): What best describes your role? (e.g., Student, Wildlife Enthusiast)") || "";
+				profileData.step1.country = prompt("Personal Details (4/4): What country are you?") || "";
+				profileData.step1.completed = true;
+				if (currentStep === 1) currentStep = 2;
+			}
+			else if (stepNumber === 2) {
+				profileData.step2.sdg = prompt("Interests (1/3): Which aspect of 'Life on Land' interests you most?") || "";
+				profileData.step2.why = prompt("Interests (2/3): What is your favorite land-based species?") || "";
+				profileData.step2.issue = prompt("Interests (3/3): How do you prefer to connect with nature? (e.g., Hiking, Tree Planting)") || "";
+				profileData.step2.completed = true;
+				if (currentStep === 2) currentStep = 3;
+			}
+			else if (stepNumber === 3) {
+				profileData.step3.action1 = prompt("Commitments (1/3): What is one eco-friendly action you have already taken?") || "";
+				profileData.step3.action2 = prompt("Commitments (2/3): What is your primary 'Life on Land' goal for this year?") || "";
+				profileData.step3.hours = prompt("Commitments (3/3): How many hours a month can you dedicate to conservation tasks?") || "";
+				profileData.step3.completed = true;
+				if (currentStep === 3) currentStep = 4;
+			}
+
+			updateDOM();
+		}
+
+		function updateDOM() {
+			const totalPrompts = 10;
+			let filledPrompts = 0;
+
+			if (profileData.step1.completed) {
+				document.getElementById('output-step1').style.display = 'block';
+				document.getElementById('btn-step1').style.display = 'inline-block';
+
+				document.getElementById('out-name').innerText = profileData.step1.name || "Skipped";
+				document.getElementById('out-age').innerText = profileData.step1.age || "Skipped";
+				document.getElementById('out-role').innerText = profileData.step1.role || "Skipped";
+				document.getElementById('out-country').innerText = profileData.step1.country || "Skipped";
+
+				if (profileData.step1.name) {
+					document.getElementById('display-name').innerText = profileData.step1.name;
+					document.getElementById('avatar-image').src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(profileData.step1.name) + "&background=66bb6a&color=fff&size=200";
+					filledPrompts++;
+				}
+				if (profileData.step1.age) {
+					document.getElementById('display-age').innerText = "Age: " + profileData.step1.age;
+					filledPrompts++;
+				}
+				if (profileData.step1.role) {
+					document.getElementById('display-role').innerText = "Role: " + profileData.step1.role;
+					filledPrompts++;
+				}
+				if (profileData.step1.country) {
+					document.getElementById('display-location').innerText = "Location: " + profileData.step1.country;
+					filledPrompts++;
+				}
+			}
+
+			if (profileData.step2.completed) {
+				document.getElementById('output-step2').style.display = 'block';
+				document.getElementById('btn-step2').style.display = 'inline-block';
+
+				document.getElementById('out-sdg').innerText = profileData.step2.sdg || "Skipped";
+				document.getElementById('out-why').innerText = profileData.step2.why || "Skipped";
+				document.getElementById('out-issue').innerText = profileData.step2.issue || "Skipped";
+
+				if (profileData.step2.sdg) filledPrompts++;
+				if (profileData.step2.why) filledPrompts++;
+				if (profileData.step2.issue) filledPrompts++;
+			}
+
+			if (profileData.step3.completed) {
+				document.getElementById('output-step3').style.display = 'block';
+				document.getElementById('btn-step3').style.display = 'inline-block';
+
+				document.getElementById('out-action1').innerText = profileData.step3.action1 || "Skipped";
+				document.getElementById('out-action2').innerText = profileData.step3.action2 || "Skipped";
+				document.getElementById('out-hours').innerText = profileData.step3.hours || "Skipped";
+
+				if (profileData.step3.action1) filledPrompts++;
+				if (profileData.step3.action2) filledPrompts++;
+				if (profileData.step3.hours) filledPrompts++;
+			}
+
+			const progressPercentage = Math.round((filledPrompts / totalPrompts) * 100);
+			document.getElementById('progress-text').innerText = progressPercentage + "% (" + filledPrompts + "/10 completed)";
+			document.getElementById('profile-progress').style.width = progressPercentage + "%";
+
+			if (currentStep > 3) {
+				document.getElementById('main-action-btn').innerText = "Profile Complete!";
+			}
+		}
+	</script>
+
+</body>
+
+</html>

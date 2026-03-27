@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor Student 1 - Loheeshan Ragavan</title>
+
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body id="top">
+
+    <a class="back-to-top" href="#top" aria-label="Go to top">↑</a>
+
+    <header class="site-header">
+        <div class="header-wrap">
+            <a class="brand" href="home.html">
+                <img src="images/logo.png" alt="Green Roots logo">
+                <div class="brand-text">
+                    <h1>Green Roots</h1>
+                    <p>Student action for SDG 15: Life on Land</p>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="stud">
+        <h2>Student 1</h2>
+        <p><strong>Name:</strong> Loheeshan Ragavan</p>
+        <p><strong>Team:</strong> Green Roots</p>
+        <p><strong>Role:</strong> Home Page, Gallery Page, Content Page, Global Styling</p>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <section>
+                <h2 id="home">Home page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Home page was built using semantic HTML elements such as <code>header</code>, <code>nav</code>,
+                    <code>main</code>, <code>section</code>, <code>article</code>, and <code>footer</code> to create a
+                    clear and meaningful page structure. The hero section was used to introduce the website topic with
+                    a heading, short description, buttons, and an image panel. A card-based layout was used to present
+                    key SDG 15 topics such as land restoration, biodiversity, and local action.
+                </p>
+                <p>
+                    For styling, I used separate CSS files for global styles, navigation, footer, and page-specific
+                    design. Flexbox was mainly used to align the hero content and card layout. Key CSS properties
+                    include <code>display: flex</code>, <code>gap</code>, <code>padding</code>, <code>margin</code>,
+                    <code>border-radius</code>, and <code>object-fit</code>. These were used to create a responsive and
+                    visually clean design.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Accessibility was addressed by including a skip link to allow keyboard users to jump directly to the
+                    main content. All images include descriptive <code>alt</code> text, and the navigation uses a clear
+                    structure with meaningful link names. The page also uses responsive design so the layout works well
+                    on different screen sizes.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#HomeVal">Go to the Home page validation section</a></p>
+
+                <h3>Link to the page</h3>
+                <p><a href="home.html">Go to the Home page</a></p>
+            </section>
+
+            <section>
+                <h2 id="gallery">Gallery Page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Gallery page was created to display SDG-related images in a structured and interactive way. The
+                    main image area uses a grid layout, while each image includes a
+                    <code>data-description</code> attribute to store text that is displayed dynamically in the popup.
+                    JavaScript was used to create the lightbox effect, allowing users to open, close, and move between
+                    images.
+                </p>
+                <p>
+                    CSS Grid was used for the gallery image layout because it makes it easy to organise images evenly.
+                    The popup overlay was styled using properties such as <code>position: fixed</code>,
+                    <code>display</code>, <code>background-color</code>, <code>border-radius</code>, and
+                    <code>transition</code>. Additional controls were added so users can change the popup background
+                    colour and description font style.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All gallery images include descriptive <code>alt</code> text. The popup buttons and controls are
+                    clearly labelled and easy to identify. The page uses a simple layout and readable structure, which
+                    helps users interact with the gallery more easily across different devices.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#GalleryVal">Go to the Gallery page validation section</a></p>
+
+                <h3>Link to the page</h3>
+                <p><a href="gallery.html">Go to the Gallery page</a></p>
+            </section>
+
+            <section>
+                <h2 id="content">Content Page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Content page was designed using a two-column structure with a sidebar and a main content area.
+                    The sidebar uses internal links so users can jump directly to specific sections of the page. The
+                    main content is divided into separate <code>article</code> blocks, each focusing on one topic such
+                    as restoration, student action, community impact, and long-term thinking.
+                </p>
+                <p>
+                    Flexbox was used to create the page layout, while card-style content sections were styled using
+                    <code>padding</code>, <code>margin-bottom</code>, <code>border</code>, and
+                    <code>background-color</code>. The image rows were also styled using Flexbox. A highlight box and a
+                    quote box were added to make important information stand out without making the layout too complex.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    The page includes a skip link and a back-to-top button to improve navigation. Images include
+                    descriptive <code>alt</code> text, and the heading structure was adjusted to improve accessibility
+                    and validation. Internal navigation links also make the page easier to use, especially for longer
+                    content.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#ContentVal">Go to the Content page validation section</a></p>
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST1.html">Go to the Content page</a></p>
+            </section>
+
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+                <p>
+                    One challenge was separating CSS into different files while still keeping the design consistent
+                    across all pages. I solved this by creating separate files for global styles, navigation, footer,
+                    and page-specific layouts. Another challenge was balancing good design with simplicity, especially
+                    because the project also needs to be explained in the viva.
+                </p>
+                <p>
+                    I also faced validation and accessibility issues such as heading warnings and missing structure.
+                    These were resolved by improving heading hierarchy, adding hidden headings where needed, and
+                    checking the pages again after corrections. This helped me understand the importance of semantic
+                    structure and accessibility.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>
+                    The pages I created follow good web development practice by using semantic HTML, clear navigation,
+                    descriptive links, and accessible content. Images include <code>alt</code> text, the pages are
+                    responsive, and the layout avoids misleading or harmful content. I also tried to keep the site
+                    readable and usable across different devices.
+                </p>
+                <p>
+                    In relation to JANET-style guidance discussed in lectures, the work is educational, relevant to the
+                    coursework, and avoids inappropriate or non-academic material. While there is still room for small
+                    improvements, the pages generally follow good standards for structure, usability, and responsible
+                    publishing.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                <p>
+                    The following log records my participation in the group process and focuses on my own contribution
+                    to the coursework.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="6">Group Meetings and Contribution Log</th>
+                        </tr>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the Home Page and template.</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>17 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Review Home Page design</td>
+                            <td>Yes</td>
+                            <td>I suggested the colour palette and card-based layout.</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Progress review</td>
+                            <td>No</td>
+                            <td>I reviewed meeting notes and followed up with tasks.</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>10 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Gallery implementation discussion</td>
+                            <td>Yes</td>
+                            <td>I explained my gallery popup logic and updated the page structure.</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>18 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Validation and accessibility review</td>
+                            <td>Yes</td>
+                            <td>I fixed heading structure issues and improved accessibility in my pages.</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>25 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Final review before submission</td>
+                            <td>Yes</td>
+                            <td>I completed the final refinement of the Home, Gallery, and Content pages.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <ul class="ref">
+                    <li>Duckett, J. (2011) <i>HTML and CSS: Design and Build Websites.</i> John Wiley &amp; Sons.</li>
+                    <li>W3C (2026) <i>Web Accessibility Initiative (WAI).</i> Available at: <a
+                            href="https://www.w3.org/WAI/" target="_blank">https://www.w3.org/WAI/</a></li>
+                    <li>MDN Web Docs (2026) <i>HTML and CSS documentation.</i> Available at: <a
+                            href="https://developer.mozilla.org/" target="_blank">https://developer.mozilla.org/</a>
+                    </li>
+                    <li>iStock (2026) <i>iStock.</i> Available at: <a href="https://www.istockphoto.com/"
+                            target="_blank">https://www.istockphoto.com/</a></li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 1
+                    <ul>
+                        <li><a href="#home">Home page</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#content">Content</a></li>
+                    </ul>
+                </li>
+                <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings and Individual Contribution Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
+            <div class="footer-col">
+                <h3>Green Roots</h3>
+                <p>
+                    A student project based on SDG 15: Life on Land, designed to promote awareness, action, and
+                    sustainable thinking.
+                </p>
+
+                <div class="footer-links">
+                    <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+                    <a href="validation_ST1.html">Validation</a>
+                    <a href="https://www.w3.org/WAI/" target="_blank">Accessibility</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 1</h3>
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="content_ST1.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                    <li><a href="validation_ST1.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 2</h3>
+                <ul>
+                    <li><a href="index.html">Splash Page</a></li>
+                    <li><a href="quiz.html">Quiz Page</a></li>
+                    <li><a href="content_ST2.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                    <li><a href="validation_ST2.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 3</h3>
+                <ul>
+                    <li><a href="feedback.html">Feedback Page</a></li>
+                    <li><a href="team.html">Team Page</a></li>
+                    <li><a href="content_ST3.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+                    <li><a href="validation_ST3.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 4</h3>
+                <ul>
+                    <li><a href="profile.html">User Profile Page</a></li>
+                    <li><a href="sitemap.html">Sitemap Page</a></li>
+                    <li><a href="content_ST4.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST4.html">Page Editor</a></li>
+                    <li><a href="validation_ST4.html">Validation</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>&copy; 2026 Life on Land Team |</strong> All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

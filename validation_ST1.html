@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator Page Student - provide your student name</title>
+
+    <link rel="stylesheet" href="css/pageEditor_validator.css"> <!-- External CSS link -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+    <!-- Update the header and the footer to be consistent with the rest of the pages you implemented -->
+
+    <a class="back-to-top" href="#top" aria-label="Go to top">↑</a>
+
+    <header class="site-header">
+        <div class="header-wrap">
+
+            <a class="brand" href="home.html">
+                <img src="images/logo.png" alt="Green Roots logo">
+                <div class="brand-text">
+                    <h1>Green Roots</h1>
+                    <p>Student action for SDG 15: Life on Land</p>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="home.html" class="active">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="student-info">
+        <div class="container-head">
+            <h2>Student 1</h2>
+            <p><strong>Name:</strong> Loheeshan Ragavan</p>
+            <p><strong>Team:</strong> Green Roots</p>
+            <p><strong>Role:</strong> Home, Gallery, Content Page, CSS</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <!-- Update the content of the following sections with the information that corresponds to the pages you implemented  -->
+
+            <section>
+                <h2 id="HomeVal">Home Page validation report</h2>
+                <p>
+                    The Home page was validated using the W3C HTML validator. The results showed only minor warnings
+                    related to
+                    heading structure and accessibility. Semantic HTML elements such as header, main, section, and
+                    article were
+                    used correctly, and all images include descriptive alt text. The layout and navigation structure
+                    follow good
+                    practices, and the page is mostly valid with only small improvements needed.
+                </p>
+                <img src="images/validation_ST1/home.png" alt="Home page validation result">
+
+                <h3>Back to Page Editor page</h3>
+                <p>
+                    <a href="pageEditor_ST1.html#HomeVal">Go to Home Page section in Page Editor</a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="GalleryVal">Gallery Page validation report</h2>
+                <p>
+                    The Gallery page validation showed a few minor warnings mainly related to accessibility and
+                    structure.
+                    All images include alt text, and the HTML structure is correctly organised. The interactive popup
+                    feature
+                    is implemented using JavaScript and does not affect HTML validity. Some improvements such as adding
+                    a skip
+                    link and refining heading structure can further improve accessibility, but overall the page is valid
+                    and
+                    functional.
+                </p>
+                <img src="images/validation_ST1/gallery.png" alt="Gallery page validation result">
+
+                <h3>Back to Page Editor page</h3>
+                <p>
+                    <a href="pageEditor_ST1.html#GalleryVal">Go to Gallery section in Page Editor</a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="ContentVal">Content Page validation report</h2>
+                <p>
+                    The Content page initially showed warnings related to missing section headings and heading
+                    hierarchy.
+                    These issues were resolved by adding a visually hidden heading and adjusting heading levels to
+                    maintain
+                    a proper structure. The page now uses semantic elements such as section, aside, and article
+                    correctly.
+                    Internal navigation and descriptive images improve accessibility. After these fixes, the page meets
+                    validation standards and follows good HTML practices.
+                </p>
+                <img src="images/validation_ST1/content.png" alt="Content page validation result">
+
+                <h3>Back to Page Editor page</h3>
+                <p>
+                    <a href="pageEditor_ST1.html#ContentVal">Go to Content Page section in Page Editor</a>
+                </p>
+            </section>
+
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages developed:</h3>
+
+            <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+            <ul class="top-level-ul">
+                <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+                <li>Student 1</li>
+                <ul>
+                    <li><a href="#HomeVal">Home page </a></li>
+                    <li><a href="#GalleryVal">Gallery</a></li>
+                    <li><a href="#ContentVal">Content</a></li>
+                </ul>
+                <li>Student 2</li>
+                <ul>
+                    <li><a href="#">Splash Screen</a></li>
+                    <li><a href="#">Action Impact Simulator</a></li>
+                    <li><a href="#">Content</a></li>
+                </ul>
+
+                <li>Student 3</li>
+                <ul>
+                    <li><a href="#">Feedback</a> </li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Content</a></li>
+                </ul>
+                <li>Student 4</li>
+                <ul>
+                    <li><a href="#">User Profile </a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Content</a></li>
+                </ul>
+            </ul>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-col">
+                <h3>Green Roots</h3>
+                <p>
+                    A student project based on SDG 15: Life on Land, designed to promote awareness, action, and
+                    sustainable thinking.
+                </p>
+
+                <div class="footer-links">
+                    <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+                    <a href="validation_ST1.html">Validation</a>
+                    <a href="https://www.w3.org/WAI/" target="_blank">Accessibility</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 1</h3>
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="content_ST1.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                    <li><a href="validation_ST1.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 2</h3>
+                <ul>
+                    <li><a href="index.html">Splash Page</a></li>
+                    <li><a href="quiz.html">Quiz Page</a></li>
+                    <li><a href="content_ST2.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                    <li><a href="validation_ST2.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 3</h3>
+                <ul>
+                    <li><a href="feedback.html">Feedback Page</a></li>
+                    <li><a href="team.html">Team Page</a></li>
+                    <li><a href="content_ST3.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+                    <li><a href="validation_ST3.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 4</h3>
+                <ul>
+                    <li><a href="profile.html">User Profile Page</a></li>
+                    <li><a href="sitemap.html">Sitemap Page</a></li>
+                    <li><a href="content_ST4.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST4.html">Page Editor</a></li>
+                    <li><a href="validation_ST4.html">Validation</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>&copy; 2026 Life on Land Team |</strong> All rights reserved.</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

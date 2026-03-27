@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Student 4</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            background: #2e7d32;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* --- Flexbox Layout Wrapper --- */
+        .layout-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* --- Side Navigation --- */
+        nav.internal-nav {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 0 0 250px;
+            position: sticky;
+            top: 20px;
+        }
+        nav.internal-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        nav.internal-nav a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        nav.internal-nav a:hover {
+            text-decoration: underline;
+            color: #1b5e20;
+        }
+
+        /* --- Main Content Area --- */
+        main.content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            scroll-margin-top: 20px;
+        }
+        h1, h2, h3 {
+            color: #1b5e20;
+            margin-top: 0;
+        }
+        
+        /* Table & Button Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2e7d32;
+            color: white;
+        }
+        .link-btn {
+            display: inline-block;
+            background: #2e7d32;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .link-btn:hover {
+            background: #1b5e20;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .layout-wrapper {
+                flex-direction: column;
+            }
+            nav.internal-nav {
+                position: static;
+                flex: auto;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            nav.internal-nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Page Editor</h1>
+        <p>Documenting the design, development, and collaborative process.</p>
+    </header>
+
+    <div class="layout-wrapper">
+        
+        <nav class="internal-nav">
+            <ul>
+                <li><a href="#overview">1. Content Overview</a></li>
+                <li><a href="#technical">2. Technical Description</a></li>
+                <li><a href="#links">3. Page Links & Validation</a></li>
+                <li><a href="#challenges">4. Challenges & Lessons</a></li>
+                <li><a href="#accessibility">5. Accessibility</a></li>
+                <li><a href="#compliance">6. JANET Compliance</a></li>
+                <li><a href="#meetings">7. Meetings & Contribution</a></li>
+                <li><a href="#references">8. References</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            
+            <section id="overview">
+                <h2>1. Content Overview</h2>
+                <p><strong>Student Name:</strong> [Enter Your Full Name]</p>
+                <p><strong>Role:</strong> User Profile & Sitemap Developer</p>
+                <p><strong>Completed Pages / Tasks:</strong></p>
+                <ul>
+                    <li>User Profile Page (<code>profile.html</code>) - A progressive, JavaScript-driven profile builder.</li>
+                    <li>Sitemap Page (<code>sitemap.html</code>) - An interactive SVG representation of the website structure.</li>
+                    <li>Page Editor (<code>pageEditor_ST4.html</code>) - This reflective report.</li>
+                </ul>
+            </section>
+
+            <section id="technical">
+                <h2>2. Technical Description of Implemented Pages</h2>
+                
+                <h3>User Profile Page (<code>profile.html</code>)</h3>
+                <h4>HTML Structure</h4>
+                <p>The page utilizes semantic HTML5 tags to ensure a logical structure. A <code>&lt;header&gt;</code> contains the logo and main <code>&lt;nav&gt;</code>. The primary content is wrapped in a <code>&lt;main&gt;</code> tag, split into functional containers using <code>&lt;div&gt;</code> elements (e.g., <code>.profile-container</code>, <code>.column</code>). The progressive output relies on hidden <code>&lt;div&gt;</code> elements containing unordered lists (<code>&lt;ul&gt;</code>) and <code>&lt;span&gt;</code> tags serving as injection points for DOM manipulation.</p>
+
+                <h4>CSS Techniques</h4>
+                <p>I utilized CSS Flexbox for the main layout to create a responsive, two-column structure (<code>flex-wrap: wrap</code>). To align with the "Life on Land" theme, I implemented a "glassmorphism" aesthetic using <code>backdrop-filter: blur(20px)</code> and linear gradients to create frosted, translucent profile cards. Interactive elements feature smooth CSS transitions (<code>transform: scale(1.02)</code> on hover) to improve user feedback.</p>
+
+                <h4>Design and Implementation Rationale</h4>
+                <p>The layout is designed to separate the user's avatar/basic info from the interactive "Profile Builder" to maintain a clean interface. I opted to use JavaScript <code>prompt()</code> sequences rather than traditional HTML forms to create a guided, conversational experience that reduces cognitive load. JavaScript handles state tracking via a <code>profileData</code> object and dynamically updates the DOM and progress bar to provide immediate visual feedback.</p>
+            </section>
+
+            <section id="links">
+                <h2>3. Links to Implemented Pages and Validation</h2>
+                <p>Below are the links to the live pages I implemented and their corresponding W3C validation evidence.</p>
+                <a href="profile.html" class="link-btn" target="_blank">View Live User Profile</a>
+                <a href="validation_ST4.html#profile-validation" class="link-btn" target="_blank">View Profile Validation</a>
+                <br>
+                <a href="sitemap.html" class="link-btn" target="_blank">View Live Sitemap</a>
+                <a href="validation_ST4.html#sitemap-validation" class="link-btn" target="_blank">View Sitemap Validation</a>
+            </section>
+
+            <section id="challenges">
+                <h2>4. Challenges and Lessons Learned</h2>
+                <p><strong>Challenge:</strong> Managing the state of the progressive profile builder and updating the DOM accurately without refreshing the page.<br>
+                <strong>Resolution:</strong> I structured the user data into a centralized JavaScript object (<code>profileData</code>) and wrote a dedicated <code>updateDOM()</code> function. By tracking the exact number of filled prompts out of the total, I could accurately calculate the progress bar percentage.<br>
+                <strong>Lesson Learned:</strong> I learned how to effectively use the FileReader API to process local image uploads and display them directly in the browser using base64 data URLs without needing a backend server.</p>
+            </section>
+
+            <section id="accessibility">
+                <h2>5. Accessibility Considerations</h2>
+                <p>Accessibility was prioritized throughout the development process. Specific techniques include:</p>
+                <ul>
+                    <li><strong>Semantic Structure:</strong> Using <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and logical heading hierarchies (<code>h1</code> to <code>h3</code>) to allow screen readers to parse the document efficiently.</li>
+                    <li><strong>Alternative Text:</strong> All images, including the dynamic avatar and website logo, have descriptive <code>alt</code> attributes.</li>
+                    <li><strong>ARIA Labels:</strong> Added <code>aria-label="Main Navigation"</code> to the <code>&lt;nav&gt;</code> to clarify its purpose for assistive technologies.</li>
+                    <li><strong>Contrast & Readability:</strong> The glassmorphism backgrounds were carefully tuned with adequate opacity to ensure the dark text remains highly readable against the background gradient.</li>
+                </ul>
+            </section>
+
+            <section id="compliance">
+                <h2>6. Compliance with JANET Regulations</h2>
+                <p>The pages I developed adhere to the JANET Acceptable Use Policy by ensuring all content is ethical, legal, and relevant to the academic scope of this coursework. I have ensured that no offensive, discriminatory, or harmful content is hosted on my pages. External resources, such as the UI-Avatars API used to generate placeholder images, are free-to-use tools utilized responsibly without placing undue load on external servers. All custom code is my original work, upholding professional academic integrity.</p>
+            </section>
+
+            <section id="meetings">
+                <h2>7. Group Meetings and Individual Contribution Log</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>24-02-2026</td>
+                            <td>face-to-face</td>
+                            <td>Discuss about Coursework and divided roles</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the User Profile and Sitemap.</td>
+                        </tr>
+                        <tr>
+                            <td>25-02-2026</td>
+                            <td>Online</td>
+                            <td>Small Discussion about the Coursework</td>
+                            <td>Yes</td>
+                            <td>I explained my work and we review the coursework specification.</td>
+                        </tr>
+                        <tr>
+                            <td>03-03-2026</td>
+                            <td>face-to-face</td>
+                            <td>Progress review in JavaScript</td>
+                            <td>Yes</td>
+                            <td>I demonstrated my Profile Page to team.</td>
+                        </tr>
+                        <tr>
+                            <td>09-03-2026</td>
+                            <td>face-to-face</td>
+                            <td>CSS Integration</td>
+                            <td>Yes</td>
+                            <td>I refined the local CSS classes and introduced a global CSS file.</td>
+                        </tr>
+                        <tr>
+                            <td>15-03-2026</td>
+                            <td>Online</td>
+                            <td>Progress review</td>
+                            <td>Yes</td>
+                            <td>I demonstrated my Sitemap Page to team.</td>
+                        </tr>
+                        <tr>
+                            <td>25-03-2026</td>
+                            <td>face-to-face</td>
+                            <td>Final review and validation</td>
+                            <td>Yes</td>
+                            <td>I shared my W3C validation screenshots with the team.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="references">
+                <h2>8. References</h2>
+                <ul>
+                    <li>MDN Web Docs. (n.d.). <em>FileReader</em>. Retrieved from https://developer.mozilla.org/en-US/docs/Web/API/FileReader</li>
+                    <li>MDN Web Docs. (n.d.). <em>Window: prompt() method</em>. Retrieved from https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt</li>
+                    <li>UI Avatars. (n.d.). <em>Generate avatars with initials</em>. Retrieved from https://ui-avatars.com/</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

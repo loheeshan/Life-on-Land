@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SDG Action Impact Simulator</title>
+    <link rel="icon" href="images/logo.png">
+
+    <!-- Page-specific external CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            transition: background 0.5s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        main h2 {
+            color: #333;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        main>p {
+            color: #666;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .action-card {
+            color: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+
+            background-size: cover;
+            background-position: center;
+
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .card1 {
+            background-image: url('images/carbon_foot.png');
+        }
+
+        .card2 {
+            background-image: url('images/agriculture.png');
+        }
+
+        .card3 {
+            background-image: url('images/energy.jpg');
+        }
+
+        .card4 {
+            background-image: url('images/recycle.jpeg');
+        }
+
+        .card5 {
+            background-image: url('images/green-tech.jpg');
+        }
+
+        .card6 {
+            background-image: url('images/policy.jpg');
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-card:focus {
+            outline: 3px solid #00d2ff;
+        }
+
+        .icon-container {
+            background-color: #e0f0ff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .action-card h3 {
+            font-size: 1.3em;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .action-card p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .impact-points {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .select-btn {
+            background-color: #00d2ff;
+            color: #0b2239;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1em;
+            pointer-events: auto;
+        }
+
+        .action-card.selected {
+            transform: scale(1.03);
+        }
+
+        .action-card.low {
+            border: 3px solid #ff4d4d;
+            box-shadow: 0 0 10px #ff4d4d;
+        }
+
+        .action-card.medium {
+            border: 3px solid #ffd633;
+            box-shadow: 0 0 10px #ffd633;
+        }
+
+        .action-card.high {
+            border: 3px solid #4CAF50;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+
+
+        .action-card.selected .select-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .feedback-summary {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-con {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            background-color: #ffffff;
+        }
+
+        .feedback-summary h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #0b2239;
+        }
+
+        .feedback-summary p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        #total-score {
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="back-to-top" href="#top" aria-label="Go to top">↑</a>
+
+    <header class="site-header">
+        <div class="container header-wrap">
+
+            <a class="brand" href="home.html">
+                <img src="images/logo.png" alt="Green Roots logo">
+                <div class="brand-text">
+                    <h1>Green Roots</h1>
+                    <p>Student action for SDG 15: Life on Land</p>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="home.html" class="active">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <h2>SDG Action Impact Simulator</h2>
+        <p>Select the actions you are willing to take to see your total impact on our Sustainable Development Goals.</p>
+
+        <div class="action-grid">
+
+            <div class="action-card card1" tabindex="0" onclick="toggleAction(this, 5)">
+                <div class="icon-container">
+                    <img src="images/carbon_foot.png" alt="Reduce carbon footprint" class="logo-con">
+                </div>
+                <h3>Reduce Your Carbon Footprint</h3>
+                <p>Switch to renewable energy sources or use public transport to lower your carbon emissions.</p>
+                <div class="impact-points">Impact: 5 points</div>
+                <button class="select-btn">Select</button>
+            </div>
+
+            <div class="action-card card2" tabindex="0" onclick="toggleAction(this, 10)">
+                <div class="icon-container">
+                    <img src="images/agriculture.png" alt="Sustainable agriculture" class="logo-con">
+                </div>
+                <h3>Support Sustainable Agriculture</h3>
+                <p>Buy locally sourced, organic food to reduce the environmental impact of food production.</p>
+                <div class="impact-points">Impact: 10 points</div>
+                <button class="select-btn">Select</button>
+            </div>
+
+            <div class="action-card card3" tabindex="0" onclick="toggleAction(this, 10)">
+                <div class="icon-container">
+                    <img src="images/energy.jpg" alt="Energy saving" class="logo-con">
+                </div>
+                <h3>Conserve Energy at Home</h3>
+                <p>Turn off lights, unplug appliances, and use energy-efficient appliances to save energy.</p>
+                <div class="impact-points">Impact: 10 points</div>
+                <button class="select-btn">Select</button>
+            </div>
+
+            <div class="action-card card4" tabindex="0" onclick="toggleAction(this, 20)">
+                <div class="icon-container">
+                    <img src="images/recycle.jpeg" alt="Recycling" class="logo-con">
+                </div>
+                <h3>Promote Circular Economy</h3>
+                <p>Reduce waste by recycling, reusing items, and supporting companies with sustainable practices.</p>
+                <div class="impact-points">Impact: 20 points</div>
+                <button class="select-btn">Select</button>
+            </div>
+
+            <div class="action-card card5" tabindex="0" onclick="toggleAction(this, 25)">
+                <div class="icon-container">
+                    <img src="images/green-tech.jpg" alt="Green technology" class="logo-con">
+                </div>
+                <h3>Invest in Green Technologies</h3>
+                <p>Support innovations that promote clean energy, sustainable agriculture, and eco-friendly solutions.
+                </p>
+                <div class="impact-points">Impact: 25 points</div>
+                <button class="select-btn">Select</button>
+            </div>
+
+            <div class="action-card card6" tabindex="0" onclick="toggleAction(this, 30)">
+                <div class="icon-container">
+                    <img src="images/policy.jpg" alt="Climate policy" class="logo-con">
+                </div>
+                <h3>Advocate for Climate Policies</h3>
+                <p>Contact your representatives to support legislation that protects the environment.</p>
+                <div class="impact-points">Impact: 30 points</div>
+                <button class="select-btn">Select</button>
+            </div>
+
+        </div>
+
+        <div class="feedback-summary">
+            <h3>Your Impact Summary</h3>
+            <p>Total Points: <strong id="total-score">0</strong></p>
+            <p id="feedback-message">Select cards above to see your impact!</p>
+        </div>
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-col">
+                <h3>Green Roots</h3>
+                <p>
+                    A student project based on SDG 15: Life on Land, designed to promote awareness, action, and
+                    sustainable thinking.
+                </p>
+
+                <div class="footer-links">
+                    <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+                    <a href="validation_ST1.html">Validation</a>
+                    <a href="https://www.w3.org/WAI/" target="_blank">Accessibility</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 1</h3>
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="content_ST1.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                    <li><a href="validation_ST1.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 2</h3>
+                <ul>
+                    <li><a href="index.html">Splash Page</a></li>
+                    <li><a href="quiz.html">Quiz Page</a></li>
+                    <li><a href="content_ST2.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                    <li><a href="validation_ST2.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 3</h3>
+                <ul>
+                    <li><a href="feedback.html">Feedback Page</a></li>
+                    <li><a href="team.html">Team Page</a></li>
+                    <li><a href="content_ST3.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+                    <li><a href="validation_ST3.html">Validation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Student 4</h3>
+                <ul>
+                    <li><a href="profile.html">User Profile Page</a></li>
+                    <li><a href="sitemap.html">Sitemap Page</a></li>
+                    <li><a href="content_ST4.html">Content Page</a></li>
+                    <li><a href="pageEditor_ST4.html">Page Editor</a></li>
+                    <li><a href="validation_ST4.html">Validation</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>&copy; 2026 Life on Land Team |</strong> All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        let totalScore = 0;
+
+        function toggleAction(cardElement, points) {
+
+            cardElement.classList.toggle('selected');
+            const btn = cardElement.querySelector('.select-btn');
+
+            if (cardElement.classList.contains('selected')) {
+
+                totalScore += points;
+                btn.textContent = "Selected";
+
+            } else {
+                totalScore -= points;
+                btn.textContent = "Select";
+            }
+
+            updateFeedback();
+        }
+
+        function updateFeedback() {
+
+            const scoreDisplay = document.getElementById('total-score');
+            const messageDisplay = document.getElementById('feedback-message');
+
+            scoreDisplay.textContent = totalScore;
+
+            const allCards = document.querySelectorAll('.action-card');
+            allCards.forEach(card => {
+                card.classList.remove('low', 'medium', 'high');
+            });
+
+            const selectedCards = document.querySelectorAll('.action-card.selected');
+
+            let level = "";
+
+            if (totalScore === 0) {
+
+                messageDisplay.textContent = "Select cards above to see your impact!";
+                document.body.style.backgroundColor = "#f4f6f8";
+                return;
+            }
+            else if (totalScore <= 30) {
+
+                messageDisplay.textContent = "Low Impact";
+                document.body.style.backgroundColor = "#F28B82";
+                level = "low";
+            }
+            else if (totalScore <= 70) {
+                messageDisplay.textContent = "Medium Impact";
+                document.body.style.backgroundColor = "#FFF3B0";
+                level = "medium";
+            }
+            else {
+                messageDisplay.textContent = "High Impact";
+                document.body.style.backgroundColor = "#6FCF97";
+                level = "high";
+            }
+
+            selectedCards.forEach(card => {
+                card.classList.add(level);
+            });
+        }
+    </script>
+</body>
+
+</html>
