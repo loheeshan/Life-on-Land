@@ -5,16 +5,24 @@
     <meta charset="UTF-8">
     <title>SDG Action Impact Simulator</title>
     <link rel="icon" href="images/logo.png">
+
+    <!-- Page-specific external CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
 
+    <!-- Embedded CSS -->
     <style>
+        /* Page background styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f6f8;
+            /* FIXED (matches your design) */
+            transition: background 0.5s ease;
+            background-size: cover;
+            background-position: center;
         }
 
         main {
@@ -37,12 +45,14 @@
             font-size: 1.1em;
         }
 
+        /* Grid layout for action cards */
         .action-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
+        /* Action card design */
         .action-card {
             color: white;
             border-radius: 12px;
@@ -54,8 +64,10 @@
             transition: 0.3s;
             border: 2px solid transparent;
             cursor: pointer;
+
             background-size: cover;
             background-position: center;
+
             background-blend-mode: darken;
             background-color: rgba(0, 0, 0, 0.75);
         }
@@ -84,9 +96,14 @@
             background-image: url('images/policy.jpg');
         }
 
+        /* Hover effect for cards */
         .action-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-card:focus {
+            outline: 3px solid #00d2ff;
         }
 
         .icon-container {
@@ -132,12 +149,32 @@
             border-radius: 6px;
             font-weight: bold;
             font-size: 1.1em;
-            pointer-events: none;
+            pointer-events: auto;
         }
 
+        /* Selected card styling */
         .action-card.selected {
-            border: 2px solid #00d2ff;
+            transform: scale(1.03);
         }
+
+        /* LOW impact */
+        .action-card.low {
+            border: 3px solid #ff4d4d;
+            box-shadow: 0 0 10px #ff4d4d;
+        }
+
+        /* MEDIUM impact */
+        .action-card.medium {
+            border: 3px solid #ffd633;
+            box-shadow: 0 0 10px #ffd633;
+        }
+
+        /* HIGH impact */
+        .action-card.high {
+            border: 3px solid #4CAF50;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+
 
         .action-card.selected .select-btn {
             background-color: #4CAF50;
@@ -177,11 +214,11 @@
             color: #4CAF50;
         }
     </style>
-    </style>
 </head>
 
 <body>
 
+    <!-- Header -->
     <a class="back-to-top" href="#top" aria-label="Go to top">↑</a>
 
     <header class="site-header">
@@ -199,7 +236,7 @@
                 <ul>
                     <li><a href="home.html" class="active">Home</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="ais.html">Action Impact</a></li>
+                    <li><a href="quiz.html">Action Impact</a></li>
                     <li><a href="feedback.html">Feedback</a></li>
                     <li><a href="team.html">Team</a></li>
                     <li><a href="profile.html">Profile</a></li>
@@ -210,6 +247,7 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main>
 
         <h2>SDG Action Impact Simulator</h2>
@@ -217,37 +255,37 @@
 
         <div class="action-grid">
 
-            <div class="action-card card1" onclick="toggleAction(this, 10)">
+            <div class="action-card card1" tabindex="0" onclick="toggleAction(this, 5)">
                 <div class="icon-container">
                     <img src="images/carbon_foot.png" alt="Reduce carbon footprint" class="logo-con">
                 </div>
                 <h3>Reduce Your Carbon Footprint</h3>
                 <p>Switch to renewable energy sources or use public transport to lower your carbon emissions.</p>
-                <div class="impact-points">Impact: 10 points</div>
+                <div class="impact-points">Impact: 5 points</div>
                 <button class="select-btn">Select</button>
             </div>
 
-            <div class="action-card card2" onclick="toggleAction(this, 15)">
+            <div class="action-card card2" tabindex="0" onclick="toggleAction(this, 10)">
                 <div class="icon-container">
                     <img src="images/agriculture.png" alt="Sustainable agriculture" class="logo-con">
                 </div>
                 <h3>Support Sustainable Agriculture</h3>
                 <p>Buy locally sourced, organic food to reduce the environmental impact of food production.</p>
-                <div class="impact-points">Impact: 15 points</div>
+                <div class="impact-points">Impact: 10 points</div>
                 <button class="select-btn">Select</button>
             </div>
 
-            <div class="action-card card3" onclick="toggleAction(this, 5)">
+            <div class="action-card card3" tabindex="0" onclick="toggleAction(this, 10)">
                 <div class="icon-container">
                     <img src="images/energy.jpg" alt="Energy saving" class="logo-con">
                 </div>
                 <h3>Conserve Energy at Home</h3>
                 <p>Turn off lights, unplug appliances, and use energy-efficient appliances to save energy.</p>
-                <div class="impact-points">Impact: 5 points</div>
+                <div class="impact-points">Impact: 10 points</div>
                 <button class="select-btn">Select</button>
             </div>
 
-            <div class="action-card card4" onclick="toggleAction(this, 20)">
+            <div class="action-card card4" tabindex="0" onclick="toggleAction(this, 20)">
                 <div class="icon-container">
                     <img src="images/recycle.jpeg" alt="Recycling" class="logo-con">
                 </div>
@@ -257,7 +295,7 @@
                 <button class="select-btn">Select</button>
             </div>
 
-            <div class="action-card card5" onclick="toggleAction(this, 25)">
+            <div class="action-card card5" tabindex="0" onclick="toggleAction(this, 25)">
                 <div class="icon-container">
                     <img src="images/green-tech.jpg" alt="Green technology" class="logo-con">
                 </div>
@@ -268,7 +306,7 @@
                 <button class="select-btn">Select</button>
             </div>
 
-            <div class="action-card card6" onclick="toggleAction(this, 30)">
+            <div class="action-card card6" tabindex="0" onclick="toggleAction(this, 30)">
                 <div class="icon-container">
                     <img src="images/policy.jpg" alt="Climate policy" class="logo-con">
                 </div>
@@ -285,8 +323,13 @@
             <p>Total Points: <strong id="total-score">0</strong></p>
             <p id="feedback-message">Select cards above to see your impact!</p>
         </div>
+
+
+
+
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
 
         <div class="container footer-grid">
@@ -320,7 +363,7 @@
                 <h3>Student 2</h3>
                 <ul>
                     <li><a href="index.html">Splash Page</a></li>
-                    <li><a href="ais.html">Quiz Page</a></li>
+                    <li><a href="quiz.html">Quiz Page</a></li>
                     <li><a href="content_ST2.html">Content Page</a></li>
                     <li><a href="pageEditor_ST2.html">Page Editor</a></li>
                     <li><a href="validation_ST2.html">Validation</a></li>
@@ -357,16 +400,25 @@
 
     </footer>
 
+    <!-- JavaScript -->
     <script>
         let totalScore = 0;
 
+        // Impact Levels:
+        // 0–30 = Low Impact
+        // 31–70 = Medium Impact
+        // 71–100 = High Impact
+
         function toggleAction(cardElement, points) {
+
             cardElement.classList.toggle('selected');
             const btn = cardElement.querySelector('.select-btn');
 
             if (cardElement.classList.contains('selected')) {
+
                 totalScore += points;
                 btn.textContent = "Selected";
+
             } else {
                 totalScore -= points;
                 btn.textContent = "Select";
@@ -374,6 +426,7 @@
 
             updateFeedback();
         }
+
         function updateFeedback() {
 
             const scoreDisplay = document.getElementById('total-score');
@@ -381,25 +434,41 @@
 
             scoreDisplay.textContent = totalScore;
 
-            document.body.style.backgroundImage = "none";
+            const allCards = document.querySelectorAll('.action-card');
+            allCards.forEach(card => {
+                card.classList.remove('low', 'medium', 'high');
+            });
+
+            const selectedCards = document.querySelectorAll('.action-card.selected');
+
+            let level = "";
 
             if (totalScore === 0) {
+
                 messageDisplay.textContent = "Select cards above to see your impact!";
+                document.body.style.backgroundColor = "#f4f6f8";
+                return;
             }
             else if (totalScore <= 30) {
-                messageDisplay.textContent = "Good start!";
-                document.body.style.backgroundImage = "url('images/low.jpg')";
+
+                messageDisplay.textContent = "Low Impact";
+                document.body.style.backgroundColor = "#F28B82";
+                level = "low";
             }
             else if (totalScore <= 70) {
-                messageDisplay.textContent = "Great job!";
-                document.body.style.backgroundImage = "url('images/medium.jpg')";
+                messageDisplay.textContent = "Medium Impact";
+                document.body.style.backgroundColor = "#FFF3B0";
+                level = "medium";
             }
             else {
-                messageDisplay.textContent = "Outstanding!";
-                document.body.style.backgroundImage = "url('images/high.jpg')";
+                messageDisplay.textContent = "High Impact";
+                document.body.style.backgroundColor = "#6FCF97";
+                level = "high";
             }
 
-            document.body.style.backgroundSize = "cover";
+            selectedCards.forEach(card => {
+                card.classList.add(level);
+            });
         }
     </script>
 </body>
