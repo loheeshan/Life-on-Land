@@ -64,13 +64,13 @@
 
 			<nav class="main-nav" aria-label="Primary navigation">
 				<ul>
-					<li><a href="home.html" class="active">Home</a></li>
+					<li><a href="home.html">Home</a></li>
 					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="quiz.html">Action Impact</a></li>
+					<li><a href="ais.html">Action Impact</a></li>
 					<li><a href="feedback.html">Feedback</a></li>
 					<li><a href="team.html">Team</a></li>
 					<li><a href="profile.html">Profile</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
+					<li><a href="sitemap.html" class="active">Sitemap</a></li>
 				</ul>
 			</nav>
 
@@ -79,7 +79,7 @@
 
 	<main>
 		<section class="sitemap-intro">
-			<h2>Interactive Visual Sitemap</h2>
+			<h2 class="center-text">Interactive Visual Sitemap</h2>
 			<p class="center-text">Explore the structure of our website. Click on any block to navigate directly to that
 				page.</p>
 		</section>
@@ -106,94 +106,176 @@
 				<!-- Background -->
 				<rect width="1000" height="520" fill="url(#bgGrad)" rx="20" />
 
-				<!-- Lines -->
-				<g stroke="#7a86c2" stroke-width="2" fill="none">
-					<path d="M500 70 L500 120" />
-					<path d="M500 160 L500 200" />
-					<path d="M100 200 L900 200" />
+				<!-- CONNECTOR LINES -->
+				<g stroke="#aab" stroke-width="2" fill="none">
 
-					<path d="M100 200 L100 260" />
-					<path d="M300 200 L300 260" />
-					<path d="M500 200 L500 260" />
-					<path d="M700 200 L700 260" />
-					<path d="M900 200 L900 260" />
+					<!-- Splash to Home -->
+					<line x1="500" y1="70" x2="500" y2="110" />
 
-					<path d="M500 300 L500 350" />
-					<path d="M100 350 L900 350" />
+					<!-- Home to horizontal bar -->
+					<line x1="500" y1="160" x2="500" y2="230" />
 
-					<path d="M100 350 L100 410" />
-					<path d="M300 350 L300 410" />
-					<path d="M500 350 L500 410" />
-					<path d="M700 350 L700 410" />
-					<path d="M900 350 L900 410" />
+					<!-- Horizontal bar across nav tier -->
+					<line x1="115" y1="200" x2="895" y2="200" />
+
+					<!-- Drops to each nav node -->
+					<line x1="115" y1="200" x2="115" y2="230" />
+					<line x1="265" y1="200" x2="265" y2="230" />
+					<line x1="415" y1="200" x2="415" y2="230" />
+					<line x1="585" y1="200" x2="585" y2="230" />
+					<line x1="745" y1="200" x2="745" y2="230" />
+					<line x1="895" y1="200" x2="895" y2="230" />
+
+					<!-- Home down to student section horizontal bar -->
+					<line x1="500" y1="160" x2="500" y2="340" />
+					<line x1="125" y1="340" x2="875" y2="340" />
+
+					<!-- Drops to each student column -->
+					<line x1="125" y1="340" x2="125" y2="370" />
+					<line x1="375" y1="340" x2="375" y2="370" />
+					<line x1="625" y1="340" x2="625" y2="370" />
+					<line x1="875" y1="340" x2="875" y2="370" />
+
+					<!-- ST1 vertical spine -->
+					<line x1="125" y1="410" x2="125" y2="450" />
+
+					<!-- ST2 vertical spine -->
+					<line x1="375" y1="410" x2="375" y2="450" />
+
+					<!-- ST3 vertical spine -->
+					<line x1="625" y1="410" x2="625" y2="450" />
+
+					<!-- ST4 vertical spine -->
+					<line x1="875" y1="410" x2="875" y2="450" />
+
 				</g>
 
 				<!-- Nodes -->
-				<g font-family="Arial" text-anchor="middle" fill="#fff">
+				<g font-family="Arial" font-size="14" text-anchor="middle" fill="#fff">
 
 					<!-- Splash -->
-					<a href="index.html">
-						<rect x="420" y="20" width="160" height="50" rx="12" fill="url(#nodeGrad)"
-							filter="url(#shadow)" />
-						<text x="500" y="50">Splash Screen</text>
+					<a href="index.html" xlink:href="index.html">
+						<title>Splash Screen</title>
+						<rect x="420" y="20" width="160" height="50" rx="10" fill="#4c6ef5" />
+						<text x="500" y="45" dominant-baseline="central">Splash</text>
 					</a>
 
 					<!-- Home -->
-					<a href="home.html">
-						<rect x="420" y="120" width="160" height="50" rx="12" fill="#5c6cff" filter="url(#shadow)" />
-						<text x="500" y="150">Home Page</text>
+					<a href="home.html" xlink:href="home.html">
+						<title>Home Page</title>
+						<rect x="420" y="110" width="160" height="50" rx="10" fill="#364fc7" />
+						<text x="500" y="135" dominant-baseline="central">Home</text>
 					</a>
 
-					<!-- Row 2 -->
+					<!-- Nav tier — 7 nodes evenly spread -->
 					<a href="gallery.html">
-						<rect x="30" y="260" width="140" height="50" rx="12" fill="#ff7a7a" filter="url(#shadow)" />
-						<text x="100" y="290">Gallery</text>
+						<title>Gallery</title>
+						<rect x="60" y="230" width="110" height="46" rx="10" fill="#fa5252" />
+						<text x="115" y="253" dominant-baseline="central">Gallery</text>
 					</a>
 
-					<a href="quiz.html">
-						<rect x="230" y="260" width="140" height="50" rx="12" fill="#ffa94d" filter="url(#shadow)" />
-						<text x="300" y="290">AIS</text>
+					<a href="ais.html">
+						<title>Action Impact</title>
+						<rect x="210" y="230" width="110" height="46" rx="10" fill="#fd7e14" />
+						<text x="265" y="253" dominant-baseline="central">Action</text>
 					</a>
 
 					<a href="feedback.html">
-						<rect x="430" y="260" width="140" height="50" rx="12" fill="#4ecdc4" filter="url(#shadow)" />
-						<text x="500" y="290">Feedback</text>
+						<title>Feedback</title>
+						<rect x="360" y="230" width="110" height="46" rx="10" fill="#12b886" />
+						<text x="415" y="253" dominant-baseline="central">Feedback</text>
 					</a>
 
 					<a href="team.html">
-						<rect x="630" y="260" width="140" height="50" rx="12" fill="#74c0fc" filter="url(#shadow)" />
-						<text x="700" y="290">Team</text>
+						<title>Team</title>
+						<rect x="530" y="230" width="110" height="46" rx="10" fill="#228be6" />
+						<text x="585" y="253" dominant-baseline="central">Team</text>
 					</a>
 
 					<a href="profile.html">
-						<rect x="830" y="260" width="140" height="50" rx="12" fill="#b197fc" filter="url(#shadow)" />
-						<text x="900" y="290">Profile</text>
+						<title>User Profile</title>
+						<rect x="690" y="230" width="110" height="46" rx="10" fill="#7950f2" />
+						<text x="745" y="253" dominant-baseline="central">Profile</text>
 					</a>
 
-					<!-- Row 3 -->
 					<a href="sitemap.html">
-						<rect x="30" y="410" width="140" height="50" rx="12" fill="#868e96" filter="url(#shadow)" />
-						<text x="100" y="440">Sitemap</text>
+						<title>Sitemap</title>
+						<rect x="840" y="230" width="110" height="46" rx="10" fill="#898e96" />
+						<text x="895" y="253" dominant-baseline="central">Sitemap</text>
 					</a>
 
-					<a href="content_ST1.html">
-						<rect x="230" y="410" width="140" height="50" rx="12" fill="#51cf66" filter="url(#shadow)" />
-						<text x="300" y="440">Content ST1</text>
+					<!-- Student section labels -->
+					<text x="125" y="360" fill="#555" font-size="12" dominant-baseline="central">Student 1</text>
+					<text x="375" y="360" fill="#555" font-size="12" dominant-baseline="central">Student 2</text>
+					<text x="625" y="360" fill="#555" font-size="12" dominant-baseline="central">Student 3</text>
+					<text x="875" y="360" fill="#555" font-size="12" dominant-baseline="central">Student 4</text>
+
+					<!-- ST1 -->
+					<a href="content_ST1.html" xlink:href="content_ST1.html">
+						<title>Content ST1</title>
+						<rect x="65" y="370" width="120" height="46" rx="10" fill="#51cf66" />
+						<text x="125" y="393" dominant-baseline="central">Content ST1</text>
+					</a>
+					<a href="pageEditor_ST1.html" xlink:href="pageEditor_ST1.html">
+						<title>Page Editor ST1</title>
+						<rect x="65" y="450" width="120" height="46" rx="10" fill="#fcc419" fill-opacity="1" />
+						<text x="125" y="473" dominant-baseline="central" fill="#333">Page Editor ST1</text>
+					</a>
+					<a href="validation_ST1.html" xlink:href="validation_ST1.html">
+						<title>Validation ST1</title>
+						<rect x="65" y="530" width="120" height="46" rx="10" fill="#ff922b" />
+						<text x="125" y="553" dominant-baseline="central">Page Validation ST1</text>
 					</a>
 
-					<a href="content_ST2.html">
-						<rect x="430" y="410" width="140" height="50" rx="12" fill="#40c057" filter="url(#shadow)" />
-						<text x="500" y="440">Content ST2</text>
+					<!-- ST2 -->
+					<a href="content_ST2.html" xlink:href="content_ST2.html">
+						<title>Content ST2</title>
+						<rect x="315" y="370" width="120" height="46" rx="10" fill="#51cf66" />
+						<text x="375" y="393" dominant-baseline="central">Content ST2</text>
+					</a>
+					<a href="pageEditor_ST2.html" xlink:href="pageEditor_ST2.html">
+						<title>Page Editor ST2</title>
+						<rect x="315" y="450" width="120" height="46" rx="10" fill="#fcc419" />
+						<text x="375" y="473" dominant-baseline="central" fill="#333">Page Editor ST2</text>
+					</a>
+					<a href="validation_ST2.html" xlink:href="validation_ST2.html">
+						<title>Validation ST2</title>
+						<rect x="315" y="530" width="120" height="46" rx="10" fill="#ff922b" />
+						<text x="375" y="553" dominant-baseline="central">Validation ST2</text>
 					</a>
 
-					<a href="content_ST3.html">
-						<rect x="630" y="410" width="140" height="50" rx="12" fill="#37b24d" filter="url(#shadow)" />
-						<text x="700" y="440">Content ST3</text>
+					<!-- ST3 -->
+					<a href="content_ST3.html" xlink:href="content_ST3.html">
+						<title>Content ST3</title>
+						<rect x="565" y="370" width="120" height="46" rx="10" fill="#51cf66" />
+						<text x="625" y="393" dominant-baseline="central">Content ST3</text>
+					</a>
+					<a href="pageEditor_ST3.html" xlink:href="pageEditor_ST3.html">
+						<title>Page Editor ST3</title>
+						<rect x="565" y="450" width="120" height="46" rx="10" fill="#fcc419" />
+						<text x="625" y="473" dominant-baseline="central" fill="#333">Page Editor ST3</text>
+					</a>
+					<a href="validation_ST3.html" xlink:href="validation_ST3.html">
+						<title>Validation ST3</title>
+						<rect x="565" y="530" width="120" height="46" rx="10" fill="#ff922b" />
+						<text x="625" y="553" dominant-baseline="central">Validation ST3</text>
 					</a>
 
-					<a href="content_ST4.html">
-						<rect x="830" y="410" width="140" height="50" rx="12" fill="#2f9e44" filter="url(#shadow)" />
-						<text x="900" y="440">Content ST4</text>
+					<!-- ST4 -->
+					<a href="content_ST4.html" xlink:href="content_ST4.html">
+						<title>Content ST4</title>
+						<rect x="815" y="370" width="120" height="46" rx="10" fill="#51cf66" />
+						<text x="875" y="393" dominant-baseline="central">Content ST4</text>
+					</a>
+					<a href="pageEditor_ST4.html" xlink:href="pageEditor_ST4.html">
+						<title>Page Editor ST4</title>
+						<rect x="815" y="450" width="120" height="46" rx="10" fill="#fcc419" />
+						<text x="875" y="473" dominant-baseline="central" fill="#333">Page Editor ST4</text>
+					</a>
+					<a href="validation_ST4.html" xlink:href="validation_ST4.html">
+						<title>Validation ST4</title>
+						<rect x="815" y="530" width="120" height="46" rx="10" fill="#ff922b" />
+						<text x="875" y="553" dominant-baseline="central">Validation ST4</text>
 					</a>
 
 				</g>
