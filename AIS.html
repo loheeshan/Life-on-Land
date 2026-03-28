@@ -11,12 +11,15 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
 
+    <!-- Embedded CSS -->
     <style>
+        /* Page background styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f6f8;
+            /* FIXED (matches your design) */
             transition: background 0.5s ease;
             background-size: cover;
             background-position: center;
@@ -42,12 +45,14 @@
             font-size: 1.1em;
         }
 
+        /* Grid layout for action cards */
         .action-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
+        /* Action card design */
         .action-card {
             color: white;
             border-radius: 12px;
@@ -91,6 +96,7 @@
             background-image: url('images/policy.jpg');
         }
 
+        /* Hover effect for cards */
         .action-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -146,20 +152,24 @@
             pointer-events: auto;
         }
 
+        /* Selected card styling */
         .action-card.selected {
             transform: scale(1.03);
         }
 
+        /* LOW impact */
         .action-card.low {
             border: 3px solid #ff4d4d;
             box-shadow: 0 0 10px #ff4d4d;
         }
 
+        /* MEDIUM impact */
         .action-card.medium {
             border: 3px solid #ffd633;
             box-shadow: 0 0 10px #ffd633;
         }
 
+        /* HIGH impact */
         .action-card.high {
             border: 3px solid #4CAF50;
             box-shadow: 0 0 10px #4CAF50;
@@ -208,6 +218,7 @@
 
 <body>
 
+    <!-- Header -->
     <a class="back-to-top" href="#top" aria-label="Go to top">↑</a>
 
     <header class="site-header">
@@ -237,6 +248,7 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main>
 
         <h2>SDG Action Impact Simulator</h2>
@@ -318,6 +330,7 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
 
         <div class="container footer-grid">
@@ -388,8 +401,14 @@
 
     </footer>
 
+    <!-- JavaScript -->
     <script>
         let totalScore = 0;
+
+        // Impact Levels:
+        // 0–30 = Low Impact
+        // 31–70 = Medium Impact
+        // 71–100 = High Impact
 
         function toggleAction(cardElement, points) {
 

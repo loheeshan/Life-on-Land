@@ -11,6 +11,10 @@
 	<title>User Profile - Life on Land</title>
 
 	<style>
+		main {
+			flex: 1;
+		}
+
 		.profile-container {
 			max-width: 1200px;
 			margin: 30px auto;
@@ -20,15 +24,20 @@
 			justify-content: center;
 			padding: 0 15px;
 			align-items: flex-start;
+			/* Added to prevent columns from stretching, necessary for sticky */
 		}
 
 		.column {
 			flex: 1;
 			min-width: 300px;
 			position: -webkit-sticky;
+			/* Safari support */
 			position: sticky;
+			/* Makes the column stick */
 			top: 20px;
+			/* Distance from the top of the viewport */
 			z-index: 10;
+			/* Keeps it above other scrolling elements if needed */
 		}
 
 		.wide-column {
@@ -115,12 +124,12 @@
 		}
 
 
-		.profile-list ul {
+		ul {
 			list-style: none;
 			padding: 0;
 		}
 
-		.profile-list ul li {
+		ul .profile-lists {
 			background: #77d4a0;
 			padding: 10px;
 			margin: 6px 0;
@@ -128,7 +137,7 @@
 		}
 
 
-		.btn {
+		button {
 			padding: 10px 15px;
 			border: none;
 			background: linear-gradient(135deg, #43a047, #2e7d32);
@@ -138,7 +147,7 @@
 			font-weight: bold;
 		}
 
-		.btn:hover {
+		button:hover {
 			opacity: 0.9;
 		}
 
@@ -148,34 +157,10 @@
 				flex-direction: column;
 			}
 
+			/* Disable sticky on mobile so it scrolls naturally with the stack */
 			.column {
 				position: static;
 			}
-		}
-
-		.scroll-to-top {
-			position: fixed;
-			bottom: 30px;
-			right: 30px;
-			background: #388e3c;
-			color: white;
-			border: none;
-			border-radius: 50%;
-			width: 44px;
-			height: 44px;
-			font-size: 1.1rem;
-			cursor: pointer;
-			display: none;
-			align-items: center;
-			justify-content: center;
-			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-			transition: background 0.3s ease;
-			z-index: 999;
-			padding: 0;
-		}
-
-		.scroll-to-top:hover {
-			background: #2e7d32;
 		}
 	</style>
 </head>
@@ -261,29 +246,36 @@
 
 					<div id="output-step1" class="profile-section" style="display:none; flex: 1; min-width: 250px;">
 						<h3>Personal Details</h3>
-						<ul class="profile-list" style="text-align: left;">
-							<li><strong>Name:</strong> <span id="out-name">Skipped</span></li>
-							<li><strong>Age:</strong> <span id="out-age">Skipped</span></li>
-							<li><strong>Role:</strong> <span id="out-role">Skipped</span></li>
-							<li><strong>Country:</strong> <span id="out-country">Skipped</span></li>
+						<ul style="text-align: left;">
+							<li class="profile-lists"><strong>Name:</strong> <span id="out-name">Skipped</span></li>
+							<li class="profile-lists"><strong>Age:</strong> <span id="out-age">Skipped</span></li>
+							<li class="profile-lists"><strong>Role:</strong> <span id="out-role">Skipped</span></li>
+							<li class="profile-lists"><strong>Country:</strong> <span id="out-country">Skipped</span>
+							</li>
 						</ul>
 					</div>
 
 					<div id="output-step2" class="profile-section" style="display:none; flex: 1; min-width: 250px;">
 						<h3>Interests</h3>
 						<ul class="profile-list" style="text-align: left;">
-							<li><strong>Primary Focus:</strong> <span id="out-sdg">Skipped</span></li>
-							<li><strong>Favorite Species:</strong> <span id="out-why">Skipped</span></li>
-							<li><strong>Engagement:</strong> <span id="out-issue">Skipped</span></li>
+							<li class="profile-lists"><strong>Primary Focus:</strong> <span id="out-sdg">Skipped</span>
+							</li>
+							<li class="profile-lists"><strong>Favorite Species:</strong> <span
+									id="out-why">Skipped</span></li>
+							<li class="profile-lists"><strong>Engagement:</strong> <span id="out-issue">Skipped</span>
+							</li>
 						</ul>
 					</div>
 
 					<div id="output-step3" class="profile-section" style="display:none; flex: 1; min-width: 250px;">
 						<h3>Commitments</h3>
 						<ul class="profile-list" style="text-align: left;">
-							<li><strong>Past Action:</strong> <span id="out-action1">Skipped</span></li>
-							<li><strong>Future Goal:</strong> <span id="out-action2">Skipped</span></li>
-							<li><strong>Hours/Month:</strong> <span id="out-hours">Skipped</span></li>
+							<li class="profile-lists"><strong>Past Action:</strong> <span
+									id="out-action1">Skipped</span></li>
+							<li class="profile-lists"><strong>Future Goal:</strong> <span
+									id="out-action2">Skipped</span></li>
+							<li class="profile-lists"><strong>Hours/Month:</strong> <span id="out-hours">Skipped</span>
+							</li>
 						</ul>
 					</div>
 
@@ -292,6 +284,7 @@
 
 		</div>
 	</main>
+
 
 	<footer class="site-footer">
 
@@ -365,9 +358,12 @@
 
 	<script>
 
+
+		// Define the button in the global scope so the scroll event can see it
 		const scrollToTopBtn = document.querySelector(".scroll-to-top");
 
 		document.addEventListener('DOMContentLoaded', function () {
+			// Image upload handler
 			document.getElementById('profile-picture-input').addEventListener('change', function (e) {
 				const file = e.target.files[0];
 				if (file && file.type.startsWith('image/')) {
@@ -378,6 +374,7 @@
 			});
 		});
 
+		// Scroll to top button visibility logic
 		window.onscroll = function () {
 			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 				if (scrollToTopBtn) scrollToTopBtn.style.display = "flex";
@@ -386,11 +383,14 @@
 			}
 		};
 
+		// Added missing function to actually scroll the window up smoothly
 		function scrollToTop() {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}
 
+		//**PROFILE BUILDER 
 
+		// Object to store profile data
 		const profileData = {
 			step1: { name: '', age: '', role: '', country: '', completed: false },
 			step2: { sdg: '', why: '', issue: '', completed: false },
@@ -437,6 +437,7 @@
 			const totalPrompts = 10;
 			let filledPrompts = 0;
 
+			// Render Step 1
 			if (profileData.step1.completed) {
 				document.getElementById('output-step1').style.display = 'block';
 				document.getElementById('btn-step1').style.display = 'inline-block';
@@ -465,6 +466,7 @@
 				}
 			}
 
+			// Render Step 2
 			if (profileData.step2.completed) {
 				document.getElementById('output-step2').style.display = 'block';
 				document.getElementById('btn-step2').style.display = 'inline-block';
@@ -478,6 +480,7 @@
 				if (profileData.step2.issue) filledPrompts++;
 			}
 
+			// Render Step 3
 			if (profileData.step3.completed) {
 				document.getElementById('output-step3').style.display = 'block';
 				document.getElementById('btn-step3').style.display = 'inline-block';
@@ -491,6 +494,7 @@
 				if (profileData.step3.hours) filledPrompts++;
 			}
 
+			// Update Progress Indicator
 			const progressPercentage = Math.round((filledPrompts / totalPrompts) * 100);
 			document.getElementById('progress-text').innerText = progressPercentage + "% (" + filledPrompts + "/10 completed)";
 			document.getElementById('profile-progress').style.width = progressPercentage + "%";
