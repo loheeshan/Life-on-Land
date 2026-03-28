@@ -11,7 +11,7 @@
 }
 
 .hero-grid > div {
-  flex: 1;
+  flex: 1 1 0;
   min-width: 300px;
 }
 
@@ -154,7 +154,7 @@
 }
 
 .card {
-  flex: 1;
+  flex: 1 1 calc(33.333% - 20px);
   min-width: 250px;
   background-color: white;
   border-radius: 12px;
@@ -201,7 +201,6 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  text-decoration: none;
 }
 
 .home-gallery img {
@@ -228,7 +227,6 @@
   transition: 0.3s;
 }
 
-/* tablet */
 @media (max-width: 992px) {
   .hero {
     padding: 40px 0 35px;
@@ -247,12 +245,8 @@
     min-width: 100%;
   }
 
-  .card-grid {
-    gap: 16px;
-  }
-
   .card {
-    min-width: calc(50% - 16px);
+    flex: 1 1 calc(50% - 20px);
   }
 
   .home-gallery a {
@@ -260,7 +254,6 @@
   }
 }
 
-/* mobile */
 @media (max-width: 768px) {
   .hero {
     padding: 30px 0 25px;
@@ -273,6 +266,15 @@
 
   .hero p {
     font-size: 15px;
+  }
+
+  .hero-grid {
+    gap: 20px;
+  }
+
+  .hero-grid > div {
+    min-width: 100%;
+    width: 100%;
   }
 
   .hero-actions {
@@ -308,25 +310,28 @@
   }
 
   .section-head p {
-    margin: 0;
     max-width: 100%;
+    margin: 0;
   }
 
   .card-grid {
     flex-direction: column;
+    gap: 16px;
   }
 
   .card {
+    flex: 1 1 100%;
     min-width: 100%;
   }
 
   .home-gallery {
     flex-direction: column;
+    gap: 16px;
   }
 
   .home-gallery a {
-    min-width: 100%;
     flex: 1 1 100%;
+    min-width: 100%;
   }
 
   .home-gallery img {
@@ -339,7 +344,6 @@
   }
 }
 
-/* small mobile */
 @media (max-width: 480px) {
   .hero {
     padding: 24px 0 20px;
